@@ -1,0 +1,57 @@
+Traceback (most recent call last):
+  File "cuda.py", line 104, in <module>
+    b = build_up_b[blockspergrid, threadsperblock](rho, dt, dx, dy, u, v, ny, nx)
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\cuda\compiler.py", line 770, in __call__
+    self.stream, self.sharedmem)
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\cuda\compiler.py", line 861, in call
+    kernel = self.compile(argtypes)
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\cuda\compiler.py", line 932, in compile
+    **self.targetoptions)
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\core\compiler_lock.py", line 32, in _acquire_compile_lock
+    return func(*args, **kwargs)
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\cuda\compiler.py", line 57, in compile_kernel
+    cres = compile_cuda(pyfunc, types.void, args, debug=debug, inline=inline)
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\core\compiler_lock.py", line 32, in _acquire_compile_lock
+    return func(*args, **kwargs)
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\cuda\compiler.py", line 46, in compile_cuda
+    locals={})
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\core\compiler.py", line 627, in compile_extra
+    return pipeline.compile_extra(func)
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\core\compiler.py", line 363, in compile_extra
+    return self._compile_bytecode()
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\core\compiler.py", line 425, in _compile_bytecode
+    return self._compile_core()
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\core\compiler.py", line 405, in _compile_core
+    raise e
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\core\compiler.py", line 396, in _compile_core
+    pm.run(self.state)
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\core\compiler_machinery.py", line 341, in run
+    raise patched_exception
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\core\compiler_machinery.py", line 332, in run
+    self._runPass(idx, pass_inst, state)
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\core\compiler_lock.py", line 32, in _acquire_compile_lock
+    return func(*args, **kwargs)
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\core\compiler_machinery.py", line 291, in _runPass
+    mutated |= check(pss.run_pass, internal_state)
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\core\compiler_machinery.py", line 264, in check
+    mangled = func(compiler_state)
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\core\typed_passes.py", line 98, in run_pass
+    raise_errors=self._raise_errors)
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\core\typed_passes.py", line 70, in type_inference_stage
+    infer.propagate(raise_errors=raise_errors)
+  File "C:\Users\Fraser\.conda\envs\env\lib\site-packages\numba\core\typeinfer.py", line 1071, in propagate
+    raise errors[0]
+numba.core.errors.TypingError: Failed in nopython mode pipeline (step: nopython frontend)
+[1m[1mUse of unsupported NumPy function 'numpy.zeros' or unsupported use of the function.
+[1m
+File "cuda.py", line 8:[0m
+[1mdef build_up_b(rho, dt, dx, dy, u, v, ny, nx):
+[1m    b = numpy.zeros((ny, nx))
+[0m    [1m^[0m[0m
+[0m
+[0m[1mDuring: typing of get attribute at cuda.py (8)[0m
+[1m
+File "cuda.py", line 8:[0m
+[1mdef build_up_b(rho, dt, dx, dy, u, v, ny, nx):
+[1m    b = numpy.zeros((ny, nx))
+[0m    [1m^[0m[0m
